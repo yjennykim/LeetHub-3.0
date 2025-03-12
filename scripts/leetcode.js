@@ -29,9 +29,9 @@ const languages = {
 }
 
 /* Commit messages */
-const readmeMsg = 'Create README - LeetHub';
-const discussionMsg = 'Prepend discussion post - LeetHub';
-const createNotesMsg = 'Attach NOTES - LeetHub';
+const readmeMsg = 'create readme';
+const discussionMsg = 'prepend discussion message';
+const createNotesMsg = 'attach notes';
 
 // problem types
 const NORMAL_PROBLEM = 0;
