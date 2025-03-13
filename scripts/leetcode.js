@@ -1167,8 +1167,12 @@ const loader = (leetCode, suffix) => {
         "difficulty": difficulty,
         "date": getTodaysDate()
       }
-      const probStatsCommitMsg = `Time: ${probStats.time} (${probStats.timePercentile}%), Space: ${probStats.space} (${probStats.spacePercentile}%) - LeetHub`; // default commit
-      const commitMsg = await getCustomCommitMessage(problemContext) || probStatsCommitMsg;
+      // const probStatsCommitMsg = `Time: ${probStats.time} (${probStats.timePercentile}%), Space: ${probStats.space} (${probStats.spacePercentile}%) - LeetHub`; // default commit
+
+      const questionUrl = window.location.href.split('/submissions')[0] + 'description';
+
+      const defaultCommitMsg = `solved problem: ${questionUrl}`
+      const commitMsg = await getCustomCommitMessage(problemContext) || defaultCommitMsg;
 
       /* Upload code to Git */
       const updateCode = leetCode.findAndUploadCode(
