@@ -421,7 +421,7 @@ document.addEventListener('click', event => {
         const addition = `[Discussion Post (created on ${currentDate})](${window.location})  \n`;
         const problemName = window.location.pathname.split('/')[2]; // must be true.
 
-        uploadGit(addition, problemName, 'README.md', discussionMsg, 'update', true);
+        // uploadGit(addition, problemName, 'README.md', discussionMsg, 'update', true);
       }
     }, 1000);
   }
@@ -1130,20 +1130,20 @@ const loader = (leetCode, suffix) => {
       }
 
       /* Upload README */
-      const updateReadMe = await chrome.storage.local.get('stats').then(({ stats }) => {
-        const shaExists = stats?.shas?.[problemName]?.['README.md'] !== undefined;
+      // const updateReadMe = await chrome.storage.local.get('stats').then(({ stats }) => {
+      //   const shaExists = stats?.shas?.[problemName]?.['README.md'] !== undefined;
 
-        if (!shaExists) {
-          return uploadGit(
-            btoa(unescape(encodeURIComponent(probStatement))),
-            problemName,
-            'README.md',
-            readmeMsg,
-            'upload',
-            false,
-          );
-        }
-      });
+      //   if (!shaExists) {
+      //     return uploadGit(
+      //       btoa(unescape(encodeURIComponent(probStatement))),
+      //       problemName,
+      //       'README.md',
+      //       readmeMsg,
+      //       'upload',
+      //       false,
+      //     );
+      //   }
+      // });
 
       /* Upload Notes if any*/
       notes = leetCode.getNotesIfAny();
@@ -1178,7 +1178,7 @@ const loader = (leetCode, suffix) => {
         'upload',
       );
 
-      await Promise.all([updateReadMe, updateNotes, updateCode]);
+      await Promise.all([updateNotes, updateCode]);
 
       uploadState.uploading = false;
       leetCode.markUploaded();
