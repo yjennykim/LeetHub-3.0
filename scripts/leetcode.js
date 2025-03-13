@@ -81,7 +81,7 @@ const getCustomCommitMessage = (problemContext) => {
 
 /* Main function for uploading code to GitHub repo, and callback cb is called if success */
 const upload = (token, hook, code, problem, filename, sha, commitMsg, cb = undefined) => {
-  const URL = `https://api.github.com/repos/${hook}/contents/${problem}/${filename}`;
+  const URL = `https://api.github.com/repos/${hook}/contents/${filename}`;
 
   /* Define Payload */
   let data = {
@@ -277,7 +277,7 @@ function uploadGit(
 
 /* Gets updated GitHub data for the specific file in repo in question */
 async function getUpdatedData(token, hook, directory, filename) {
-  const URL = `https://api.github.com/repos/${hook}/contents/${directory}/${filename}`;
+  const URL = `https://api.github.com/repos/${hook}/contents${filename}`;
 
   let options = {
     method: 'GET',
